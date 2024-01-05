@@ -1,0 +1,66 @@
+
+/* body{
+background-color:#eba148 ;
+} */
+.navbar{
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .12) , inset 0 -1px 0 0 #dadce0;
+    height: 70px;
+}
+.btn-primary{
+    background-color: #e7932d;
+    border-color: #E38311;
+}
+.btn-primary:hover{
+    background-color:  #cf7d19;
+    border-color: #E38311;
+}
+
+.btn-primary:active{
+    background-color: #a15b06;
+    border-color: #E38311;
+    opacity: 0.2; 
+}
+.badge{
+    background-color: black;
+    color: #fff;
+}
+.book-img{
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+.book-card > div > div > div > .card-title{
+    font-size: 19px;
+}
+.book-card > div > div > div > p{
+    font-size: 14px;
+}
+.book-card > div > div > a{
+    font-size: 12px;
+    height: fit-content;
+
+}
+.cart{
+    margin: auto;
+    width: 40%;
+    display: inline-block;
+}
+.cat{
+    height: 25px;
+    font-size: 13px;
+    font-weight: normal;
+}
+.qty-btn{
+    background-color: #fff;
+    border: 1px solid #e7932d;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+
+}
