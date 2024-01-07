@@ -1,0 +1,39 @@
+
+.link p{
+    text-align: center;
+}
+body {
+  background-color: whitesmoke!important;
+}
+.labels label{
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+}
+#emailHelp{
+    color: black;
+    font-weight: 400;
+    
+}
+.labels p{
+    color: black;
+    font-weight: 400;
+    
+}
+.labels p a{
+    color: #E38311!important;;
+    font-weight: 400;
+    
+}
+#registerBtn{
+    font-weight: 500;
+    color: white;
+    background-color:#E38311;
+   
+ }
+ #loginBtn{
+    font-weight: 500;
+    color: white;
+    background-color:#E38311;
+   
+ }
