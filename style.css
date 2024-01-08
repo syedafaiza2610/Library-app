@@ -17,7 +17,7 @@ background-color: #e7932d;
 }
 
 .btn-primary:active{
-    background-color: #a15b06;
+    background-color: #a15b06!important;
     border-color: #E38311;
     opacity: 0.2; 
 }
@@ -130,4 +130,7 @@ text-align: center;
    color: #dadce0;
    text-align: center;
    font-weight: bolder;
+}
+#selected-logo{
+    display: none;
 }
