@@ -1,13 +1,12 @@
-import {storage , ref , uploadBytesResumable , getDownloadURL} from "./firebase.js"
+import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc , query , where , getDocs  } from "./firebase.js"
 
 
 const logo = document.getElementById("store-logo");
-
 const selectedlogo = document.getElementById("selected-logo");
 let file;
-logo.addEventListener("change",(e) => {
+logo.addEventListener("change", (e) => {
     file = e.target.files[0];
-    selectedlogo.style.display="block";
+    selectedlogo.style.display = "block";
     selectedlogo.src = URL.createObjectURL(e.target.files[0]);
 })
 
@@ -42,12 +41,53 @@ let uploadFile = (file, name) => {
         );
     })
 }
+
+const getAllstores = async () => {
+    const storelist = document.getElementById("store-list");
+    storelist.innerHTML = "";
+    const q = collection(db, "stores");
+    const querySnapshot = await getDocs(q);
+    let index = 0;
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+        index++
+        storelist.innerHTML += `
+                    <tr>
+                        <th scope="row">${index}</th>
+                        <td><img class="store-logo-image" src="${doc.data().image}" alt=""></td>
+                        <td>${doc.data().name}</td>
+                        <td>${doc.data().address}</td>
+                    </tr>
+        `
+    });
+}
+
+getAllstores()
+
 const submitstore = document.getElementById("submit-store");
 
-submitstore.addEventListener("click", async () =>{
+submitstore.addEventListener('click', async () => {
+    const spinner = document.getElementById("store-spinner");
     const name = document.getElementById("store-name");
+    const closeBtn = document.getElementById("close-btn")
     const address = document.getElementById("store-address");
+    spinner.style.display = "block"
     const image = await uploadFile(file, name.value)
-    console.log(image)
- 
- })
+    const docRef = await addDoc(collection(db, "stores"), {
+        name: name.value,
+        address: address.value,
+        image
+    });
+    spinner.style.display = "none"
+    name.value = "";
+    address.value = "";
+    logo.value = "";
+    selectedlogo.style.display = "none";
+    console.log("Document written with ID: ", docRef.id);
+    getAllstores();
+    closeBtn.click();
+  
+})
+
+
+    

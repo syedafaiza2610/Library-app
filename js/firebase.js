@@ -4,7 +4,9 @@ import { getAuth ,  signInWithEmailAndPassword , onAuthStateChanged ,  } from
  "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
  import { getStorage , ref, uploadBytesResumable, getDownloadURL  } from
  "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-const firebaseConfig = {
+ import { getFirestore , collection, addDoc , query , where , getDocs} from
+ "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+ const firebaseConfig = {
   apiKey: "AIzaSyCE4_oje0ZknaKX1xU2-8ZMR594CBjF4oM",
   authDomain: "smit-ba688.firebaseapp.com",
   databaseURL: "https://smit-ba688-default-rtdb.firebaseio.com",
@@ -18,6 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const storage = getStorage(app);
+const db = getFirestore(app);
 
 
 export{
@@ -27,5 +30,11 @@ export{
   storage,
   ref,
   uploadBytesResumable,
-  getDownloadURL
+  getDownloadURL,
+  db,
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs
 }
