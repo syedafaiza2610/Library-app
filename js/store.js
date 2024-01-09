@@ -57,6 +57,8 @@ const getAllstores = async () => {
                         <td><img class="store-logo-image" src="${doc.data().image}" alt=""></td>
                         <td>${doc.data().name}</td>
                         <td>${doc.data().address}</td>
+                        <td>${doc.data().description}</td>
+                        
                     </tr>
         `
     });
@@ -71,12 +73,14 @@ submitstore.addEventListener('click', async () => {
     const name = document.getElementById("store-name");
     const closeBtn = document.getElementById("close-btn")
     const address = document.getElementById("store-address");
+    const description = document.getElementById("store-des");
     spinner.style.display = "block"
     const image = await uploadFile(file, name.value)
     const docRef = await addDoc(collection(db, "stores"), {
         name: name.value,
         address: address.value,
-        image
+        image,
+        description: description.value
     });
     spinner.style.display = "none"
     name.value = "";

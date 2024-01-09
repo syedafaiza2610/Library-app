@@ -24,14 +24,9 @@ const login = () => {
   });
        
 }
-
-
-
 const loginBtn = document.getElementById("loginBtn");
-
 loginBtn && loginBtn.addEventListener("click", login)
 
-const pageSpinner = document.getElementById("page-spinner");
 
 const getAllstores = async () => {
   const storelist = document.getElementById("store-list");
@@ -39,33 +34,21 @@ const getAllstores = async () => {
   const q = collection(db, "stores");
   const querySnapshot = await getDocs(q);
   let index = 0;
-  pageSpinner.style.display = "none";
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
-    storelist.innerHTML += `
-        <div class="col mb-4">
-        <div class="card" style="width: 18rem;">
-            <img src="${doc.data().image}"
-                class="card-img-top" alt="..." loading="lazy">
-            <div class="card-body">
-                <h5 class="card-title">${doc.data().name}</h5>
-                <p class="card-text">All variety are available
-                </p>
-                <a href="books.html?restaurant=${doc.id
-      }" class="btn btn-primary">View All Books</a>
-            </div>
-        </div>
-         </div>
-        `;
+      console.log(doc.id, " => ", doc.data());
+      index++
+      storelist.innerHTML += `
+      <div class="col">
+          <div class="cardcat" style="width: 19rem;">
+              <img src= "${doc.data().image}"class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                  <h5 class="card-title"><b>${doc.data().name}</b></h5>
+                  <p class="card-text">
+                  ${doc.data().description}</p>
+                  <a href ="books.html" class="btn btn-primary">View All Books</a>
+              </div>
+          </div>
+      </div>`
   });
-};
+}
 getAllstores();
-
-// onAuthStateChanged(auth, (user) => {
-//   if (
-//     (user && location.pathname.indexOf("restaurants") !== -1) ||
-//     location.pathname === "/"
-//   ) {
-//     getAllRestaurants();
-//   }
-// });
