@@ -45,7 +45,12 @@ background-color: #e7932d;
     height: 200px;
     object-fit: cover;
 }
-.book-img{
+.book-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.book-img {
     width: 200px;
     height: 150px;
     border-radius: 10px;
@@ -151,6 +156,9 @@ text-align: center;
 }
 #store-spinner{
   display: none;
+}
+#book-spinner{
+    display: none;
 }
 .store-logo-image{
 width: 50px;

@@ -35,7 +35,7 @@ const getAllstores = async () => {
   const querySnapshot = await getDocs(q);
   let index = 0;
   querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      console.log(doc.id, " = ", doc.data());
       index++
       storelist.innerHTML += `
       <div class="col">
@@ -43,8 +43,8 @@ const getAllstores = async () => {
               <img src= "${doc.data().image}"class="card-img-top" alt="...">
               <div class="card-body text-center">
                   <h5 class="card-title"><b>${doc.data().name}</b></h5>
-                  <p class="card-text">
-                  ${doc.data().description}</p>
+                  <p class="card-text">"
+                  ${doc.data().description}"</p>
                   <a href ="books.html" class="btn btn-primary">View All Books</a>
               </div>
           </div>

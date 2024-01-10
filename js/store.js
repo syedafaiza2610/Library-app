@@ -94,4 +94,4 @@ submitstore.addEventListener('click', async () => {
 })
 
 
-    
+    export { uploadFile };
