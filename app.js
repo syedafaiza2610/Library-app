@@ -45,7 +45,7 @@ const getAllstores = async () => {
                   <h5 class="card-title"><b>${doc.data().name}</b></h5>
                   <p class="card-text">"
                   ${doc.data().description}"</p>
-                  <a href ="books.html" class="btn btn-primary">View All Books</a>
+                  <a href ="books.html?store${doc.id}" class="btn btn-primary">View All Books</a>
               </div>
           </div>
       </div>`

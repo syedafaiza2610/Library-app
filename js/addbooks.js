@@ -1,5 +1,5 @@
-import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, query, where, getDocs }
-    from "./firebase.js"
+
+import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection , addDoc , getDocs } from "./firebase.js"
 
 let uploadFile = (file, name) => {
     return new Promise((resolve, reject) => {
@@ -32,46 +32,58 @@ let uploadFile = (file, name) => {
     })
 }
 
-const getAllstores = async (stores) => {
-    const storeselect = document.getElementById("store-name");
-    const q = collection(db, "stores");
-   const querySnapshot = await getDocs(q);
-    let index = 0;
-    let stores =[];
-    storeselect.innerHTML = `<option selected>Select Stores</option>`
-    querySnapshot.forEach((doc) => {
-        stores.push({...doc.data(), id: doc.id });
-        console.log(doc.id, " = ", doc.data());
-        index++
-        storeselect.innerHTML += `<option value="${doc.id}">${doc.data().name}</option>`
-    });
-    console.log("stores====>" ,stores)
-    getAllBooks(stores);
+const getAllStores = async () => {
+    try {
+        const q = collection(db, "stores");
+        const querySnapshot = await getDocs(q);
+        const resSelect = document.getElementById("store-name");
+        let index = 0;
+        let allStores = [];
+        resSelect.innerHTML = `<option selected>Select Store</option>`
+        querySnapshot.forEach((doc) => {
+            allStores.push({ ...doc.data(), id: doc.id })
+            index++
+            resSelect.innerHTML += `
+            <option value="${doc.id}">${doc.data().name}</option>
+            `
+        });
+        return new Promise((resolve, reject) => {
+            resolve(allStores)
+        })
+    } catch (err) {
+        console.log("err", err)
+    }
 }
 
-getAllstores();
+getAllStores()
 
-
-const getAllBooks = async (stores) => {
+const getAllBooks = async () => {
+    const stores = await getAllStores();
     const allBooks = document.getElementById("all-books");
     const q = collection(db, "books");
     const querySnapshot = await getDocs(q);
     let index = 0;
+    let storeNames = {};
+    for (var i = 0; i < stores.length; i++) {
+        storeNames[stores[i].id] = stores[i].name
+    }
+    console.log("storeNames", storeNames)
     allBooks.innerHTML = ``
     querySnapshot.forEach((doc) => {
-        index++
+        index++;
         allBooks.innerHTML += `
                      <tr>
                         <th scope="row">1</th>
                         <td><img class="book-image" src="${doc.data().image}" alt=""></td>
                         <td>${doc.data().name}</td>
                         <td>${doc.data().price}</td>
+                        <td>${storeNames[doc.data().store]}</td>
                     </tr>
         `
     });
-
 }
 
+getAllBooks();
 
 const addBooks = document.getElementById("addBooks");
 
@@ -90,7 +102,6 @@ addBooks.addEventListener('click', async () => {
         price: bookPrice.value,
         image
     }
-    console.log(bookDetail)
     const docRef = await addDoc(collection(db, "books"), bookDetail);
     storeName.value = "";
     bookName.value = "";
@@ -100,5 +111,4 @@ addBooks.addEventListener('click', async () => {
     closeBtn.click()
     getAllBooks()
     console.log(docRef)
-});
-
+})

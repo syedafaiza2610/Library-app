@@ -89,6 +89,7 @@ submitstore.addEventListener('click', async () => {
     selectedlogo.style.display = "none";
     console.log("Document written with ID: ", docRef.id);
     getAllstores();
+
     closeBtn.click();
   
 })
