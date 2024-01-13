@@ -1,11 +1,30 @@
-import { collection , getDocs , db , where , query , doc , getDoc,} from "./firebase.js";
+import { collection, getDocs, db, where, query, doc, getDoc, } from "./firebase.js";
+const urlParams = new URLSearchParams(window.location.search);
+const getStoreDetail = async () => {
+    
+    const storeName = document.getElementById("store-name");
+    const storeAddress = document.getElementById("store-address");
+    const storeDes = document.getElementById("store-description");
+    const storeImage = document.getElementById("store-image");
+    const docRef = doc(db, "stores", urlParams.get('store'));
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        storeName.innerHTML = docSnap.data().name;
+        storeDes.innerHTML = docSnap.data().description;
+        storeAddress.innerHTML = docSnap.data().address;
+        storeImage.src = docSnap.data().image;
+        console.log("Document data:", docSnap.data());
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+getStoreDetail();
 
 const getAllBooks = async () => {
     const allBooks = document.getElementById("all-books");
-    var urlParams = new URLSearchParams(window.location.search);
-    console.log(urlParams)
-    const q = collection(db, "books");
-    
+    const q = query(collection(db, "books"), where("store", "==", urlParams.get("store")));
+
     const querySnapshot = await getDocs(q);
     allBooks.innerHTML = ``
     querySnapshot.forEach((doc) => {

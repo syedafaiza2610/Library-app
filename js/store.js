@@ -79,8 +79,9 @@ submitstore.addEventListener('click', async () => {
     const docRef = await addDoc(collection(db, "stores"), {
         name: name.value,
         address: address.value,
-        image,
-        description: description.value
+        description: description.value,
+        image
+       
     });
     spinner.style.display = "none"
     name.value = "";
