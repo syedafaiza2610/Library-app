@@ -30,10 +30,12 @@ loginBtn && loginBtn.addEventListener("click", login)
 
 const getAllstores = async () => {
   const storelist = document.getElementById("store-list");
+  const pagespinner = document.getElementById("page-spinner");
   storelist.innerHTML = "";
   const q = collection(db, "stores");
   const querySnapshot = await getDocs(q);
   let index = 0;
+  pagespinner.style.display = "none"
   querySnapshot.forEach((doc) => {
       console.log(doc.id, " = ", doc.data());
       index++

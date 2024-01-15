@@ -62,8 +62,8 @@ const getAllstores = async () => {
                     </tr>
         `
     });
-}
 
+}
 getAllstores()
 
 const submitstore = document.getElementById("submit-store");
