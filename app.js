@@ -48,6 +48,7 @@ const getAllstores = async () => {
                   <p class="card-text">"
                   ${doc.data().description}"</p>
                   <a href ="books.html?store=${doc.id}" class="btn btn-primary">View All Books</a>
+                  <br>
               </div>
           </div>
       </div>`

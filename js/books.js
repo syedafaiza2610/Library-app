@@ -7,7 +7,7 @@ const getStoreDetail = async () => {
     const storeName = document.getElementById("store-name");
     const storeAddress = document.getElementById("store-address");
     const storeDes = document.getElementById("store-description");
-    const storeImage = document.getElementById("store-image");
+    const storeImage = document.getElementById("store-image1");
     const docRef = doc(db, "stores", urlParams.get('store'));
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -28,7 +28,7 @@ const getAllBooks = async () => {
     const allBooks = document.getElementById("all-books");
     const q = query(collection(db, "books"), where("store", "==", urlParams.get("store")));
     const querySnapshot = await getDocs(q);
-    allBooks.innerHTML = ``
+    allBooks.innerHTML = "";
     querySnapshot.forEach((doc) => {
         books.push({ ...doc.data(), id: doc.id })
         pageSpinner.style.display = "none"
@@ -41,7 +41,7 @@ const getAllBooks = async () => {
                 <div class="p-3">
                     <h2 class="card-title"><b>${doc.data().name}</b></h2>
                     <p class="card-text">
-                    <h4>Rs: ${doc.data().price}</h4>
+                    <h4>Rs: ${doc.data().price}</h4> </p>
 
                 </div>
             </div>
@@ -81,10 +81,6 @@ const addToCart = (id) => {
     cart.push({ ...book[0], qty: Number(qty.innerHTML) });
     localStorage.setItem("cart", JSON.stringify(cart));
     getcart();
-    // const totalAmount = document.getElementById("totalAmount");
-    // const sum = cart.reduce((a, b) => a + Number(b.price) * b.qty, 0);
-    // totalAmount.innerHTML = `Rs ${sum + 100} /-`;
-    // getCartItems();
 };
 
 const getcart = () => {
@@ -94,25 +90,25 @@ const getcart = () => {
     if (cartitems) {
         for (var i = 0; i < cartitems.length; i++) {
             console.log(cartitems[i])
-            cart.innerHTML += ` 
-            <div class="card dish-card w-100 mb-3">
-            <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <img class="book-image"
-                            src="${cartitems[i].image}" />
-                        <div class="p-2">
-                            <h5 class="card-title">${cartitems[i].name
-                }</h5>
-                            <h3 class="card-title">Rs: ${cartitems[i].price
-                } x ${cartitems[i].qty} = ${cartitems[i].price * cartitems[i].qty
-                }</h3>
-                        <a href="#" class="btn btn-primary"><i
-                                class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
+            cart.innerHTML +=
+            `<div class="row g-0">
+            <div class="col-md-4">
+              <img src="${cartitems[i].image}" class="book-image2" alt="...">
             </div>
-        </div>`
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">${cartitems[i].name}</h3>
+                <div>
+                  <h5 class="card-title">Rs: ${cartitems[i].price} <br>
+                      Quantity : ${cartitems[i].qty} <br>
+                      Sub Total : ${cartitems[i].price * cartitems[i].qty} </h5>
+                         <a href="#" class="btn btn-primary"><i class="fa-solid fa-trash"></i></a>
+                </div>
+                <p class="card-text"></p>
+                
+              </div>
+            </div>
+          </div> `
         }
     }
 }

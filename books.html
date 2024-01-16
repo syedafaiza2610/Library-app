@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: whitesmoke!important;
+            background-color: whitesmoke;
         }
     </style>
 </head>
@@ -54,21 +54,21 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div style ="display: none;" id="main">
-            <div class="row px-2 py-4">
-                <div class="col">
-                    <div class="card">
+        <div style ="display: none;" id="main" >
+            <div class=" store-top row px-2 py-4">
+                <div class="col store-top">
+                    <div class="card" id ="store-name1">
                         <div class="card-body">
                             <div class="mb-4">
-                                <img id="store-image" width="200" src="./images/slider.jpg" alt="" />
+                                <img id="store-image1" width="200" src="./images/slider.jpg" alt="" />
                             </div>
-                            <h3 id="store-name" class="card-title"><b>A Digital Realm of Knowledge</b></h3>
-                            <p id="store-description" class="card-text"> "Discover a curated digital oasis at
+                            <h3 id="store-name" class="bold card-title"><b>A Digital Realm of Knowledge</b></h3>
+                            <p id="store-description" class="card-text"> <i class="fa-solid fa-quote-left"></i>Discover a curated digital oasis at
                                 CyberScribe Archives, where
                                 knowledge transcends boundaries.Unleash the power of words with a click, and embark on a
                                 journey through our
-                                virtual library store"</p>
-                            <h5 id="store-address"></h5>
+                                virtual library store<i class="fa-solid fa-quote-right"></i></p>
+                            <h5 id="store-address"><i></i></h5>
                             <p> <span class="cat badge rounded-pill text-bg-dark">Classic Literature</span>
                                 <span class="cat badge rounded-pill text-bg-dark">Modern Fiction</span>
                                 <span class="cat badge rounded-pill text-bg-dark">Biographies and Memoirs</span>
@@ -92,6 +92,7 @@
                             <div id= "cart" class="card-body">
                                
                                 <div id= "cart" class="card book-card w-100 mb-3">
+                                    
                                     <!-- <div class="card-body">
                                         <div class="d-flex">
                                             <img class="book-img" src="images/book1.jpg" alt="">

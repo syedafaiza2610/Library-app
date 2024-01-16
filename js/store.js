@@ -1,4 +1,4 @@
-import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc , query , where , getDocs  } from "./firebase.js"
+import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc , getDocs  } from "./firebase.js"
 
 
 const logo = document.getElementById("store-logo");
