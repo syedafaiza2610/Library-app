@@ -102,6 +102,33 @@
         font-weight: bold;
     
     }
+    .reg{
+        width: 100%;
+        height: 98vh;
+        background: url(images/reg2.png);
+        background-position:center ;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-weight: 600;
+        /* background-attachment: fixed; */
+    
+    }
+    #regdiv{
+       
+        background-color:#8F5FD2;
+        border-radius: 50px;
+        margin-top: 20px;
+    }
+    .log{
+            width: 100%;
+            height: 98vh;
+            background: url(images/log\ in.png);
+            background-position:center ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-weight: 600;
+        
+    }
     #heroimg{
         width: 100%;
         height: 100vh;
@@ -193,6 +220,7 @@
         border-radius: 10px;
         background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5)) ,url(images/store1.jpg);
         height: fit-content;
+        background-attachment: fixed;
         width: auto;
         background-position:center ;
          background-size: cover;

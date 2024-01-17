@@ -12,8 +12,10 @@ body {
 }
 #emailHelp{
     color: black;
-    font-weight: 400;
-    
+    font-weight: 400;  
+}
+#log{
+    color:white!important;
 }
 .labels p{
     color: black;
@@ -31,6 +33,35 @@ body {
     background-color:#E38311;
    
  }
+ #log{
+    padding-top: 80px;
+    padding-left: -180px;
+    color: black;
+ }
+ #sub{
+    background-color:#342D5D!important;
+    width: 200px;
+    border-radius: 50px;
+    border: none;
+   
+ }
+ #sub1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ #sub:hover{
+    background-color: #342D5D;
+    border-color:#342D5D;
+}
+
+#sub:active{
+  
+    background-color: #342D5D!important;
+    border-color:#342D5D!important;
+    opacity: 0.2; 
+}
  #loginBtn{
     font-weight: 500;
     color: white;
