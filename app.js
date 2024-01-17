@@ -1,5 +1,6 @@
 
 import { auth , signInWithEmailAndPassword , db, collection , getDocs,} from  "./js/firebase.js"
+
 const login = () => {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
@@ -22,8 +23,8 @@ const login = () => {
     const errorMessage = error.message;
     console.log(errorMessage)
   });
+};
        
-}
 const loginBtn = document.getElementById("loginBtn");
 loginBtn && loginBtn.addEventListener("click", login)
 
