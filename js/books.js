@@ -80,8 +80,23 @@ const addToCart = (id) => {
     const book = books.filter((v) => v.id === id);
     cart.push({ ...book[0], qty: Number(qty.innerHTML) });
     localStorage.setItem("cart", JSON.stringify(cart));
+    const totalAmount = document.getElementById("totalAmount");
+    const total = cart.reduce((a, b) => a + Number(b.price) * b.qty, 0);
+    console.log(total)
+    totalAmount.innerHTML = `Rs: ${total + 250}`;
+    console.log(totalAmount)
     getcart();
 };
+
+const deleteCart = (i) => {
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    cartItems.splice(Number(i), 1);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+//     const totalAmount = document.getElementById("totalAmount");
+// //     const total = cartItems.reduce((a, b) => a + Number(b.price) * b.qty, 0);
+// //     totalAmount.innerHTML = `Rs ${total + 250} `;
+  getcart();
+  };
 
 const getcart = () => {
     const cartitems = JSON.parse(localStorage.getItem('cart'));
@@ -102,7 +117,7 @@ const getcart = () => {
                   <h5 class="card-title">Rs: ${cartitems[i].price} <br>
                       Quantity : ${cartitems[i].qty} <br>
                       Sub Total : ${cartitems[i].price * cartitems[i].qty} </h5>
-                         <a href="#" class="btn btn-primary"><i class="fa-solid fa-trash"></i></a>
+                         <a href="#" onclick="deleteCart('${i}')" class="btn btn-primary">Remove</a> <hr>
                 </div>
                 <p class="card-text"></p>
                 
@@ -116,6 +131,7 @@ getcart();
 
 window.quantity = quantity;
 window.addToCart = addToCart;
+window.deleteCart = deleteCart;
 
 
 

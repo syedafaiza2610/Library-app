@@ -56,3 +56,14 @@ const getAllstores = async () => {
   });
 }
 getAllstores();
+
+
+
+onAuthStateChanged(auth, (user) => {
+  if (
+    (user && location.pathname.indexOf("store") !== -1) ||
+    location.pathname === "/"
+  ) {
+    getAllstores();
+  }
+});

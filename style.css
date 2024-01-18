@@ -18,8 +18,8 @@
     
     .btn-primary:active{
         background-color: #a15b06!important;
-        border-color: #E38311;
-        opacity: 0.2; 
+        border-color: #E38311!important;
+        opacity: 0.2!important; 
     }
     
     .badge{
