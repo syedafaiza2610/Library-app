@@ -8,11 +8,48 @@ body {
 .labels label{
     color: black;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
 }
 #emailHelp{
     color: black;
     font-weight: 400;  
+}
+#btnreg a{
+    color: white!important;
+    text-decoration: none;
+}
+.displayimage{
+    max-width: 600px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px;
+    height: 100%; 
+    border: 2px solid black;
+}
+
+.login-container {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color:#5496CC;
+    border-radius: 40px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .12) , inset 0 -5px 0 0 #E38311;
+    height: fit-content;
+}
+.login-container1 {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px;
+    background-color:#5496CC;
+    border-radius: 40px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .12) , inset 0 -5px 0 0 #E38311;
+    height: fit-content;
+}
+#logintext a{
+    color: blue;
+    padding-left: 2px;
 }
 #log{
     color:white!important;
@@ -22,6 +59,11 @@ body {
     font-weight: 400;
     
 }
+#display-img img{
+
+margin: 70px;
+height: 70%;
+}
 .labels p a{
     color: #E38311!important;;
     font-weight: 400;
@@ -30,14 +72,23 @@ body {
 #registerBtn{
     font-weight: 500;
     color: white;
-    background-color:#E38311;
+    background-color:#E38311!important;  
+    width: 190px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
    
  }
 
  #loginBtn{
     font-weight: 500;
     color: white;
-    background-color:#E38311;
-   
+    background-color:#E38311!important;  
+    width: 190px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
  }
  

@@ -73,7 +73,7 @@ const getAllBooks = async () => {
         index++;
         allBooks.innerHTML += `
                      <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">${index}</th>
                         <td><img class="book-image1" src="${doc.data().image}" alt=""></td>
                         <td>${doc.data().name}</td>
                         <td>${doc.data().price}</td>
