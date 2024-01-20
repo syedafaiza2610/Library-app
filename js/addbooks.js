@@ -76,6 +76,7 @@ const getAllBooks = async () => {
                         <th scope="row">${index}</th>
                         <td><img class="book-image1" src="${doc.data().image}" alt=""></td>
                         <td>${doc.data().name}</td>
+                        <td>${doc.data().author}</td>
                         <td>${doc.data().price}</td>
                         <td>${storeNames[doc.data().store]}</td>
                     </tr>
@@ -92,6 +93,7 @@ addBooks.addEventListener('click', async () => {
     const spinner = document.getElementById("book-spinner");
     const storeName = document.getElementById("store-name");
     const bookName = document.getElementById("book-name");
+    const AuthorName = document.getElementById("author-name");
     const bookPrice = document.getElementById("book-price");
     const bookImage = document.getElementById("book-image");
     spinner.style.display = "block"
@@ -99,12 +101,14 @@ addBooks.addEventListener('click', async () => {
     const bookDetail = {
         store: storeName.value,
         name: bookName.value,
+        author:AuthorName.value,
         price: bookPrice.value,
         image
     }
     const docRef = await addDoc(collection(db, "books"), bookDetail);
     storeName.value = "";
     bookName.value = "";
+    AuthorName.value ="";
     bookPrice.value = "";
     bookImage.value = "";
     spinner.style.display = "none"

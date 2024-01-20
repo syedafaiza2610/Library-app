@@ -91,4 +91,37 @@ height: 70%;
     justify-content: center;
     margin: auto;
  }
+ .main-content1{
+    background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)) ,url(images/reg2.png);
+    background-position:center ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: fit-content; */
+    background-attachment: fixed;
+   
+ }
+ #main2{
+    background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)) ,url(images/reg2.png);
+    background-position:center ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: fit-content; */
+    background-attachment: fixed;
+    text-align: center;
+ }
+ #main3 th{
+    background-color: #e7932d;
+    font-size: 20px;
+    font-weight: 700;
+ }
+
+
+ .main-content h2{
+    font-size: 50px;
+    font-weight: 700;
+    font-style: oblique;
+    color: black;
+    padding-left: 35%;
+   
+ }
  
