@@ -16,9 +16,9 @@ const getAllstores = async () => {
       storelist.innerHTML += `
       <div class="col">
           <div class="cardcat" style="width: 19rem;">
-              <img src= "${doc.data().image}"class="card-img-top" alt="...">
+              <img src= "${doc.data().image}"class="card-img-top" alt="..."><br>
               <div class="card-body text-center">
-                  <h5 class="card-title"><b>${doc.data().name}</b></h5>
+                  <h5 class="card-title"><b>${doc.data().name}</b></h5> <br>
                   <p class="card-text">"
                   ${doc.data().description}"</p>
                   <a href ="books.html?store=${doc.id}" class="btn btn-primary">View All Books</a>

@@ -87,13 +87,19 @@ submitstore.addEventListener('click', async () => {
     name.value = "";
     address.value = "";
     logo.value = "";
+    description.value = "";
     selectedlogo.style.display = "none";
     console.log("Document written with ID: ", docRef.id);
     getAllstores();
 
     closeBtn.click();
+    setInterval(() => {    location.href = "store.html";
+        
+    }, 2000);
+   
   
 })
+
 
 
     export { uploadFile };

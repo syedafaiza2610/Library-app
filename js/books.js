@@ -39,11 +39,11 @@ const getAllBooks = async () => {
             <div class="d-flex">
                 <img class="book-img" src = "${doc.data().image}" alt="">
                 <div class="p-3">
-                    <h2 class="card-title"><b>Book Name: ${doc.data().name}</b></h2>
+                    <h2 class="card-title"><b>${doc.data().name}</b></h2>
                     <h5 class="text-center">By</h5>
-                    <h2 class="card-title"><b>Author: ${doc.data().author}</b></h2>
+                    <h2 class="card-title text-center"><b>${doc.data().author}</b></h2>
                     <p class="card-text">
-                    <h4>Rs: ${doc.data().price}</h4> </p>
+                    <h4  class="text-center">Rs: ${doc.data().price}</h4> </p>
 
                 </div>
             </div>

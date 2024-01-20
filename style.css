@@ -141,7 +141,7 @@
     #heroimg{
         width: 100%;
         height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(images/slider5.jpg);
+        background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url(images/slider5.jpg);
         background-position:center ;
         background-size: cover;
         background-repeat: no-repeat;
@@ -200,6 +200,11 @@
         display: none;
     }
     #submit-store{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    #addBooks{
         display: flex;
         align-items: center;
         gap: 4px;
